@@ -1,0 +1,26 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Quan Lee
+ * Date: 12/7/16
+ * Time: 10:58 AM
+ */
+$title = 'Edit album';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url(
+    'company',
+    array(
+        'action' => 'edit',
+        'id'     => $this->id,
+    )
+));
+
+
+echo $this->partial('_form.phtml', array(
+    'form' =>$form,
+));

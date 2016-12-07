@@ -1,0 +1,36 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Quan Lee
+ * Date: 12/7/16
+ * Time: 10:53 AM
+ */
+
+use Zend\Form\Element;
+use Zend\Form\Form;
+$form->prepare();
+
+$select = new Element\Select('country');
+$select->setLabel('Country');
+$select->setValue($form->get("country"));
+$select->setValueOptions(array(
+    'european' => array(
+        'label' => 'European',
+        'options' => array( 'French' => 'French',  'Italian' => 'Italian', ),
+    ),
+    'asian' => array(
+        'label' => 'asian',
+        'options' => array(  'VietNam' => 'VietNam', 'Japanese' => 'Japanese', 'Chinese' => 'Chinese', ),
+    ),
+));
+echo $this->form()->openTag($form);
+echo $this->formHidden($form->get('id')).'<table id="list-item">';
+echo '<tr><td>'.$this->formRow($form->get("name")).'</td></tr>';
+echo '<tr><td>'.$this->formRow($form->get("address")).'</td></tr>';
+echo '<tr><td>'.$this->formRow($form->get("email")).'</td></tr>';
+echo '<tr><td>'.$this->formRow($form->get("mobile")).'</td></tr>';
+echo '<tr><td>'.$this->formRow($select).'</td></tr>';
+echo '<tr><td>'.$this->formSubmit($form->get('submit')).'</td></tr>';
+echo '</table>';
+echo $this->form()->closeTag();
+

@@ -1,0 +1,15 @@
+
+
+<VirtualHost *:80>
+    ServerName zend.lc
+    DocumentRoot "D:\xampp\htdocs\zend\public"
+    SetEnv APPLICATION_ENV "development"
+    <Directory "D:\xampp\htdocs\zend\public">
+        DirectoryIndex index.php
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+
+
+
